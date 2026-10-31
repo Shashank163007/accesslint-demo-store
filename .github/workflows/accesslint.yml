@@ -1,0 +1,38 @@
+name: AccessLint PR Audit
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  accessibility-audit:
+    name: Run AccessLint Accessibility Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR Branch
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Dependencies & Playwright
+        run: |
+          npm install
+          npx playwright install --with-deps chromium
+          echo "NODE_PATH=${{ github.workspace }}/node_modules" >> $GITHUB_ENV
+      - name: Start Storefront Server
+        run: |
+          npx serve -l 3000 . &
+          sleep 3
+      - name: Run AccessLint Action
+        uses: Shashank163007/Team-ignite-accesslint@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          target-url: 'http://localhost:3000'
+          routes: '/index.html'
+          fail-on-new: 'false'

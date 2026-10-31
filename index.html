@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignite Gear Store</title>
+    <style>
+      :root { color: #111111; background: #f5f1e8; font-family: Arial, sans-serif; }
+      body { margin: 0; }
+      header, main, footer { max-width: 1100px; margin: 0 auto; padding: 24px; }
+      header { border-bottom: 4px solid #111111; display: flex; justify-content: space-between; align-items: center; }
+      h1, h2 { margin: 0; text-transform: uppercase; }
+      main { min-height: 70vh; }
+      .tools { background: #ffda00; border: 4px solid #111111; box-shadow: 6px 6px #111111; padding: 20px; margin: 28px 0; }
+      label { display: block; font-weight: 700; margin-bottom: 8px; }
+      input { border: 3px solid #111111; padding: 12px; font-size: 1rem; width: min(100%, 360px); }
+      .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+      .card { background: #ffffff; border: 4px solid #111111; box-shadow: 6px 6px #111111; padding: 16px; }
+      .card img { width: 100%; height: 150px; object-fit: cover; border: 3px solid #111111; }
+      button { background: #ff4f00; color: #ffffff; border: 3px solid #111111; padding: 12px 16px; font-weight: 700; cursor: pointer; }
+      footer { border-top: 4px solid #111111; }
+    </style>
+  </head>
+  <body>
+    <header><h1>Ignite Gear Store</h1><p aria-label="Store tagline">Built loud. Built to last.</p></header>
+    <main>
+      <section class="tools" aria-labelledby="search-heading">
+        <h2 id="search-heading">Find your gear</h2>
+        <label for="product-search">Search products</label>
+        <input id="product-search" type="search" placeholder="Search the collection">
+      </section>
+      <section aria-labelledby="products-heading">
+        <h2 id="products-heading">Featured gear</h2>
+        <div class="products">
+          <article class="card"><img src="https://placehold.co/400x300/ff4f00/ffffff?text=Ignite+Tee" alt="Orange Ignite logo t-shirt"><h3>Ignite Logo Tee</h3><p>$28</p><button type="button">Add Ignite Logo Tee to cart</button></article>
+          <article class="card"><img src="https://placehold.co/400x300/0057ff/ffffff?text=Trail+Pack" alt="Blue outdoor trail backpack"><h3>Trail Pack</h3><p>$74</p><button type="button">Add Trail Pack to cart</button></article>
+          <article class="card"><img src="https://placehold.co/400x300/111111/ffda00?text=Core+Cap" alt="Black cap with yellow core badge"><h3>Core Cap</h3><p>$22</p><button type="button">Add Core Cap to cart</button></article>
+        </div>
+      </section>
+    </main>
+    <footer><p>Questions? Email hello@ignitegear.example</p><p id="legacy-copyright" style="color: #aaaaaa; background: #ffffff;">© 2024 Legacy Store</p></footer>
+  </body>
+</html>
+
